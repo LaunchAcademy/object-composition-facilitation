@@ -1,5 +1,5 @@
 require 'pry'
-require_relative 'player'
+require_relative './../clinic/react-intro'
 
 class Game
   attr_reader :players
@@ -9,7 +9,8 @@ class Game
   end
 
   def add_player(player_name)
-    @players << Player.new(player_name)
+     new_player = Player.new(player_name)
+    @players << new_player
   end
 
   def play_game
@@ -20,7 +21,7 @@ class Game
     puts "#{winning_player.name} wins!"
   end
 
-  # private
+  private
 
   def assign_random_point
     lucky_player = @players.sample
