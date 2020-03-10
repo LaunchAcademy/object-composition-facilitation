@@ -1,5 +1,5 @@
 require 'pry'
-require_relative './../clinic/react-intro'
+require_relative 'player'
 
 class Game
   attr_reader :players
@@ -9,8 +9,7 @@ class Game
   end
 
   def add_player(player_name)
-     new_player = Player.new(player_name)
-    @players << new_player
+    @players << Player.new(player_name)
   end
 
   def play_game
@@ -31,6 +30,7 @@ class Game
   end
 
   def winning_player
-    @players.max_by { |player| player.points }
+    winning_player = @players.max_by { |player| player.points }
+    return winning_player
   end
 end
